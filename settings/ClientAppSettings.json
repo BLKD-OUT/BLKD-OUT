@@ -1,1 +1,8 @@
+{
+  "DFIntTaskSchedulerTargetFps": 30,
+  "DFFlagDebugDisableParticles": true,
+  "DFFlagDisableShadows": true,
+  "FFlagHandleAltEnterFullscreenManually": false,
+  "FFlagFixGraphicsQualityDropdownCrash": false
+}
 
