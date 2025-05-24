@@ -30,7 +30,7 @@ jobs:
           move dist/blkd_out.exe output/
 
       - name: Upload executable artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: BLKD_OUT_executable
           path: output/blkd_out.exe
