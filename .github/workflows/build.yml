@@ -1,0 +1,36 @@
+name: Build BLKD OUT
+
+on:
+  push:
+    paths:
+      - '**.py'
+      - 'assets/**'
+      - '.github/workflows/build.yml'
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install PyInstaller
+        run: pip install pyinstaller pillow
+
+      - name: Build executable with icon
+        run: |
+          pyinstaller blkd_out.py --onefile --windowed --icon=assets/blkdout.ico
+          mkdir -p output
+          move dist/blkd_out.exe output/
+
+      - name: Upload executable artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: BLKD_OUT_executable
+          path: output/blkd_out.exe
